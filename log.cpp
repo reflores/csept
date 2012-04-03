@@ -105,7 +105,8 @@ void append_action_to_log(fstream& log, string s, bool result)
   time(&current_time);
   
   //FIXME remove newline char at the end of ctime
-  log << ctime(&current_time) << ": " << s;
+  string the_time = ctime(&current_time);
+  log << the_time.substr(0, the_time.size()-1) << ": " << s;
   if (result)
   {
     log << " (SUCCESS)";
